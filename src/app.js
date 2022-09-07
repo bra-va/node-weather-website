@@ -10,6 +10,7 @@ const forecast = require('./utils/forecast')
 
 //uso la funzione express per lanciare l'applicazione
 const app = express()
+const port = process.env.PORT || 3000 // se trova una porta remota usa quella, altrimenti quella locale
 
 // imposto i settaggi di Express
 const publicDirectoryPath = path.join(__dirname, '../public')
@@ -120,9 +121,9 @@ app.get('*', (req, res) => {
 
 
 // Come starto il server?
-app.listen(3000, () => {
+app.listen(port, () => {
     // callback quando il server è startato correttamente
-    console.log("Server is up in port 3000.")
+    console.log("Server is up in port " + port)
 })
 
 
